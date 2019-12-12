@@ -24,6 +24,9 @@ class IASGenericApp extends IASInfra
 	public function main()
 	{
 		print "Generic app main\n";
+		
+		$this->debug_paths();
+
 	}
 	
 #	public function teardown()
