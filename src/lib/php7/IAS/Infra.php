@@ -1,8 +1,10 @@
 <?php
 
+include "IAS/Infra/FullProjectPaths.php";
+
 class IASInfra
 {
-
+	use FullProjectPaths;
 	public function run()
 	{
 		$this->setup_paths();
@@ -59,5 +61,14 @@ class IASInfra
 		}
 		
 		return $this->in_src_dir;
+	}
+	
+	public function artifact_name()
+	{
+		if ( ! $this->is_in_src_dir() )
+		{
+			$components = explode('/', $this->bin_whence);
+			return $components[count($components)-2];		
+		}
 	}
 }

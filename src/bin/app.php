@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-$php_lib='php7.2';
+$php_lib='php7';
 
 set_include_path(join(
 	PATH_SEPARATOR,
@@ -26,6 +26,7 @@ class IASGenericApp extends IASInfra
 		print "Generic app main\n";
 		
 		$this->debug_paths();
+		$this->debug_extended_paths();
 
 	}
 	
