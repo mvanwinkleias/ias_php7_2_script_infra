@@ -7,6 +7,11 @@ trait FullProjectPaths
 		print "conf_dir:     ".$this->conf_dir()."\n";
 	}
 	
+	public function artifact_name()
+	{
+		return NULL;
+	}
+	
 	public function conf_dir()
 	{
 		if ($this->is_in_src_dir())
@@ -16,9 +21,8 @@ trait FullProjectPaths
 		else
 		{
 			return $this->bin_whence
-				."../.."
-				.$self->artifact_name()
-				."/etc";
+				."/../../etc/"
+				.$this->artifact_name();
 		}
 	}
 }

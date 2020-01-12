@@ -37,6 +37,7 @@ class IASInfra
 	
 	public function debug_paths()
 	{
+		print "Artifact name: ".$this->artifact_name()."\n";
 		print "Script:     ".$this->Script."\n";
 		print "RealScript: ".$this->RealScript."\n";
 		print "Bin:        ".$this->Bin."\n";
@@ -68,7 +69,9 @@ class IASInfra
 		if ( ! $this->is_in_src_dir() )
 		{
 			$components = explode('/', $this->bin_whence);
-			return $components[count($components)-2];		
+			return $components[count($components)-1];		
 		}
+		else
+		return "Huh?";
 	}
 }
