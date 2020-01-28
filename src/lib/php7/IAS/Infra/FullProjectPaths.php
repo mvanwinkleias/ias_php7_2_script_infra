@@ -4,7 +4,28 @@ trait FullProjectPaths
 {
 	public function debug_extended_paths()
 	{
-		print "conf_dir:     ".$this->conf_dir()."\n";
+		# print "conf_dir:     ".$this->conf_dir()."\n";
+		
+		$this->debug_infra_path();
+	}
+	
+	public function get_infra_path($path_name)
+	{
+		$wanted_name = $path_name;
+		if ($path_name == "conf")
+			$wanted_name = 'etc';
+		
+		if ($path_name == "lib")
+		{
+			
+		}
+	}
+	
+	public function debug_infra_path
+	{
+		print "lib: ".$this->get_infra_path('lib')."\n";
+		print $this->get_infra_path('conf')."\n";
+		
 	}
 	
 	public function conf_dir()
