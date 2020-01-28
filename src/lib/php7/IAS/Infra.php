@@ -1,10 +1,12 @@
 <?php
 
+namespace IAS;
+
 include "IAS/Infra/FullProjectPaths.php";
 
-class IASInfra
+class Infra
 {
-	use IASInfra\FullProjectPaths;
+	use Infra\FullProjectPaths;
 	public function run()
 	{
 		$this->setup_paths();

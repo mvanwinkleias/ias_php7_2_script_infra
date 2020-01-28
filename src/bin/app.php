@@ -14,7 +14,7 @@ set_include_path(join(
 
 include "IAS/Infra.php";
 
-class IASGenericApp extends IASInfra
+class IASGenericApp extends IAS\Infra
 {
 	public function setup()
 	{

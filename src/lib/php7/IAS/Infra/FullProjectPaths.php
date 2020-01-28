@@ -1,6 +1,6 @@
 <?php
 
-namespace IASInfra;
+namespace IAS\Infra;
 
 trait FullProjectPaths
 {
