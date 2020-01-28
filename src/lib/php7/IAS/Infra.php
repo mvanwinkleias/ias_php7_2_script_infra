@@ -4,7 +4,7 @@ include "IAS/Infra/FullProjectPaths.php";
 
 class IASInfra
 {
-	use FullProjectPaths;
+	use IASInfra\FullProjectPaths;
 	public function run()
 	{
 		$this->setup_paths();

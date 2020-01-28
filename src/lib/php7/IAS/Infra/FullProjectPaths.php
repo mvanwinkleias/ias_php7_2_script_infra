@@ -1,5 +1,7 @@
 <?php
 
+namespace IASInfra;
+
 trait FullProjectPaths
 {
 	public function debug_extended_paths()
@@ -15,16 +17,18 @@ trait FullProjectPaths
 		if ($path_name == "conf")
 			$wanted_name = 'etc';
 		
+		print "Namespace: ".__TRAIT__."\n";
+		
 		if ($path_name == "lib")
 		{
-			
+
 		}
 	}
 	
-	public function debug_infra_path
+	public function debug_infra_path()
 	{
 		print "lib: ".$this->get_infra_path('lib')."\n";
-		print $this->get_infra_path('conf')."\n";
+		print "conf: ".$this->get_infra_path('conf')."\n";
 		
 	}
 	
