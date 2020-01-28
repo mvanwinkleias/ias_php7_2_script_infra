@@ -44,6 +44,15 @@ class IASInfra
 		print "Realbin:    ".$this->RealBin."\n";
 		print "Bin whence: ".$this->bin_whence."\n";
 		print "In src dir: ".$this->is_in_src_dir()."\n";
+
+		if ($this->is_in_src_dir())
+		{
+			print "Project name:  ".$this->project_name()."\n";
+		}
+		else
+		{
+			print "Artifact name: ".$this->artifact_name()."\n";
+		}
 	}
 	
 	public function is_in_src_dir()
@@ -66,12 +75,30 @@ class IASInfra
 	
 	public function artifact_name()
 	{
-		if ( ! $this->is_in_src_dir() )
+		if (! isset($this->artifact_name)
+			&& !$this->is_in_src_dir()
+		)
+		{
+
+			$components = explode('/', $this->bin_whence);
+			$artifact_name = $components[count($components)-1];
+		}
+		
+		return $this->artifact_name;
+	}
+
+	public function project_name()
+	{
+		if (
+			! isset($this->project_name)
+			&& $this->is_in_src_dir()
+		)
 		{
 			$components = explode('/', $this->bin_whence);
-			return $components[count($components)-1];		
+			$project_name = $components[count($components)-3];
+			
+			$this->project_name = $project_name;
 		}
-		else
-		return "Huh?";
+		return $this->project_name;
 	}
 }
