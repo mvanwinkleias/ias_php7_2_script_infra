@@ -39,7 +39,6 @@ class Infra
 	
 	public function debug_paths()
 	{
-		print "Artifact name: ".$this->artifact_name()."\n";
 		print "Script:     ".$this->Script."\n";
 		print "RealScript: ".$this->RealScript."\n";
 		print "Bin:        ".$this->Bin."\n";
@@ -84,6 +83,7 @@ class Infra
 
 			$components = explode('/', $this->bin_whence);
 			$artifact_name = $components[count($components)-1];
+			$this->artifact_name = $artifact_name;
 		}
 		
 		return $this->artifact_name;
