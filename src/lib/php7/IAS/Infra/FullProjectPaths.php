@@ -21,7 +21,31 @@ trait FullProjectPaths
 		
 		if ($path_name == "lib")
 		{
-
+			$trait = __TRAIT__;
+			$trait_parts = explode('\\', $trait);
+			
+			$file = __FILE__;
+			print "File: $file\n";
+			$file_parts = explode('/', $file);
+			
+			$file_parts = array_slice(
+				$file_parts,
+				0,
+				count($file_parts) - count($trait_parts)
+			);
+			
+			return join('/', $file_parts);
+		}
+		
+		if ($this->is_in_src_dir())
+		{
+			return $this->bin_whence."/../$wanted_name";
+		}
+		else
+		{
+			return $this->bin_whence
+				."/../../$path_name/"
+				.$this->artifact_name();
 		}
 	}
 	
@@ -29,6 +53,7 @@ trait FullProjectPaths
 	{
 		print "lib: ".$this->get_infra_path('lib')."\n";
 		print "conf: ".$this->get_infra_path('conf')."\n";
+		print "input: ".$this->get_infra_path('input')."\n";
 		
 	}
 	
