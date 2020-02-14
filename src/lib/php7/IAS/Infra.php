@@ -3,18 +3,26 @@
 namespace IAS;
 
 include "IAS/Infra/FullProjectPaths.php";
+include "IAS/Infra/Logger.php";
 
 class Infra
 {
 	use Infra\FullProjectPaths;
+	use Infra\Logger;
 	public function run()
 	{
+
+		$this->setup_paths();
+
 		if (method_exists($this, 'open_log'))
 		{
 			$this->open_log();
 		}
 		
-		$this->setup_paths();
+		if (method_exists($this, 'log_start'))
+		{
+			$this->log_start();
+		}
 
 		if (method_exists($this, 'setup'))
 		{
@@ -31,6 +39,11 @@ class Infra
 		if (method_exists($this, 'teardown'))
 		{
 			$this->teardown();
+		}
+		
+		if (method_exists($this, 'log_end'));
+		{
+			$this->log_end();
 		}
 		
 		if (method_exists($this, 'close_log'))
@@ -51,6 +64,7 @@ class Infra
 		isset($this->bin_whence) OR
 			$this->bin_whence = $this->RealBin;
 		
+		$this->ScriptName=basename($script_path);
 	}
 	
 	public function debug_paths()

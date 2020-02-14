@@ -6,7 +6,7 @@ trait Syslog
 {
 	public function open_log()
 	{
-		openlog($this->RealScript, LOG_PID, LOG_LOCAL0);
+		openlog($this->ScriptName, LOG_PID, LOG_LOCAL0);
 
 	}
 
