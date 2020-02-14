@@ -1,21 +1,22 @@
 #!/usr/bin/php
 <?php
 
-$php_lib='php7';
+namespace IAS\Infra\App;
 
 set_include_path(join(
 	PATH_SEPARATOR,
 	[
-		dirname(realpath($_SERVER['PHP_SELF'])).'/../lib/'.$php_lib,
-		'/opt/IAS/lib/'.$php_lib,
+		dirname(realpath($_SERVER['PHP_SELF'])).'/../lib/php7',
+		'/opt/IAS/lib/php7',
 		get_include_path(),
 	]
 ));
 
-include "IAS/Infra.php";
+include "IAS/Infra/App.php";
 
-class IASGenericApp extends IAS\Infra
+class IASGenericApp
 {
+	use \IAS\Infra\App;
 	public function setup()
 	{
 		$this->log_info("Setting up generic app.\n");

@@ -2,8 +2,16 @@
 
 namespace IAS\Infra;
 
+include "IAS/Infra/FullProjectPaths.php";
+include "IAS/Infra/Logger.php";
+include "IAS/Infra/Base.php";
+
 trait App
 {
+	use FullProjectPaths;
+	use Logger;
+	use Base;
+	
 	public function run()
 	{
 
