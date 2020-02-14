@@ -18,22 +18,22 @@ class IASGenericApp extends IAS\Infra
 {
 	public function setup()
 	{
-		print "Setting up generic app.\n";
+		$this->log_info("Setting up generic app.\n");
 	}
 	
 	public function main()
 	{
-		print "Generic app main\n";
+		$this->log_info("Generic app main\n");
 		
 		$this->debug_paths();
 		$this->debug_extended_paths();
 
 	}
 	
-#	public function teardown()
-#	{
-#		print "Tearing down generic app.\n";
-#	}
+	public function teardown()
+	{
+		$this->log_info("Tearing down generic app.\n");
+	}
 
 }
 

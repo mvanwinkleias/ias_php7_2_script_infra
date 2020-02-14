@@ -69,20 +69,20 @@ class Infra
 	
 	public function debug_paths()
 	{
-		print "Script:     ".$this->Script."\n";
-		print "RealScript: ".$this->RealScript."\n";
-		print "Bin:        ".$this->Bin."\n";
-		print "Realbin:    ".$this->RealBin."\n";
-		print "Bin whence: ".$this->bin_whence."\n";
-		print "In src dir: ".$this->is_in_src_dir()."\n";
+		$this->log_info("Script:     ".$this->Script."\n");
+		$this->log_info("RealScript: ".$this->RealScript."\n");
+		$this->log_info("Bin:        ".$this->Bin."\n");
+		$this->log_info("Realbin:    ".$this->RealBin."\n");
+		$this->log_info("Bin whence: ".$this->bin_whence."\n");
+		$this->log_info("In src dir: ".$this->is_in_src_dir()."\n");
 
 		if ($this->is_in_src_dir())
 		{
-			print "Project name:  ".$this->project_name()."\n";
+			$this->log_info("Project name:  ".$this->project_name()."\n");
 		}
 		else
 		{
-			print "Artifact name: ".$this->artifact_name()."\n";
+			$this->log_info("Artifact name: ".$this->artifact_name()."\n");
 		}
 	}
 	

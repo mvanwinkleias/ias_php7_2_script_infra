@@ -51,12 +51,12 @@ trait FullProjectPaths
 	
 	public function debug_infra_path()
 	{
-		print "bin_dir: ".$this->bin_dir()."\n";
-		print "lib_dir: ".$this->lib_dir()."\n";
-		print "log_dir: ".$this->log_dir()."\n";
-		print "conf_dir: ".$this->conf_dir()."\n";
-		print "input_dir: ".$this->input_dir()."\n";
-		print "output_dir: ".$this->output_dir()."\n";
+		$this->log_info("bin_dir: ".$this->bin_dir()."\n");
+		$this->log_info("lib_dir: ".$this->lib_dir()."\n");
+		$this->log_info("log_dir: ".$this->log_dir()."\n");
+		$this->log_info("conf_dir: ".$this->conf_dir()."\n");
+		$this->log_info("input_dir: ".$this->input_dir()."\n");
+		$this->log_info("output_dir: ".$this->output_dir()."\n");
 				
 	}
 	
