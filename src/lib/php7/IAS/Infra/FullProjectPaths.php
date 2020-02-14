@@ -17,7 +17,7 @@ trait FullProjectPaths
 		if ($path_name == "conf")
 			$wanted_name = 'etc';
 		
-		print "Namespace: ".__TRAIT__."\n";
+		// print "Namespace: ".__TRAIT__."\n";
 		
 		if ($path_name == "lib")
 		{
@@ -25,7 +25,7 @@ trait FullProjectPaths
 			$trait_parts = explode('\\', $trait);
 			
 			$file = __FILE__;
-			print "File: $file\n";
+			// print "File: $file\n";
 			$file_parts = explode('/', $file);
 			
 			$file_parts = array_slice(
@@ -51,23 +51,44 @@ trait FullProjectPaths
 	
 	public function debug_infra_path()
 	{
-		print "lib: ".$this->get_infra_path('lib')."\n";
-		print "conf: ".$this->get_infra_path('conf')."\n";
-		print "input: ".$this->get_infra_path('input')."\n";
-		
+		print "bin_dir: ".$this->bin_dir()."\n";
+		print "lib_dir: ".$this->lib_dir()."\n";
+		print "log_dir: ".$this->log_dir()."\n";
+		print "conf_dir: ".$this->conf_dir()."\n";
+		print "input_dir: ".$this->input_dir()."\n";
+		print "output_dir: ".$this->output_dir()."\n";
+				
+	}
+	
+
+	public function bin_dir()
+	{
+		return $this->bin_whence;
+	}
+	
+	public function input_dir()
+	{
+		return $this->get_infra_path('input');
+	}
+	
+	public function output_dir()
+	{
+		return $this->get_infra_path('output');
 	}
 	
 	public function conf_dir()
 	{
-		if ($this->is_in_src_dir())
-		{
-			return $this->bin_whence."/../etc";
-		}
-		else
-		{
-			return $this->bin_whence
-				."/../../etc/"
-				.$this->artifact_name();
-		}
+		return $this->get_infra_path('etc');
 	}
+
+	public function log_dir()
+	{
+		return $this->get_infra_path('log');
+	}
+	
+	public function lib_dir()
+	{
+		return $this->get_infra_path('lib');
+	}
+	
 }
