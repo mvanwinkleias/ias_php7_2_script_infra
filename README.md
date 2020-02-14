@@ -1,4 +1,4 @@
-# ias_php7_2_script_infra
+# ias_php7_script_infra
 
 Here is an introduction to this project.
 
@@ -37,7 +37,7 @@ in either "DEBIAN/control" or "RPM/specfile.spec"
 
 Optionally, you can build a package which will install the binaries in
 
-* /opt/IAS/bin/ias-php7-2-script-infra/.
+* /opt/IAS/bin/ias-php7-script-infra/.
 
 # Building a Package
 

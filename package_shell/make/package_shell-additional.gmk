@@ -1,12 +1,9 @@
-.PHONY: release 
-
-release: test-all
-
 .PHONY: package_shell-project_post_create_cleanup
 
 package_shell-project_post_create_cleanup:
 	chmod +x spell_check.sh
 	chmod +x $(ARTIFACT_DIR)/case.sh
+	chmod +x src/bin/*
 
 .PHONY: debug-package_shell-additional
 
