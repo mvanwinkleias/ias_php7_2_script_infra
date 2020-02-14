@@ -1,8 +1,5 @@
 #!/usr/bin/php
 <?php
-
-namespace IAS\Infra\App;
-
 set_include_path(join(
 	PATH_SEPARATOR,
 	[
@@ -12,33 +9,9 @@ set_include_path(join(
 	]
 ));
 
-include "IAS/Infra/App.php";
+include "IAS/Infra/App/IASGenericApp.php";
 
-class IASGenericApp
-{
-	use \IAS\Infra\App;
-	public function setup()
-	{
-		$this->log_info("Setting up generic app.\n");
-	}
-	
-	public function main()
-	{
-		$this->log_info("Generic app main\n");
-		
-		$this->debug_paths();
-		$this->debug_extended_paths();
-
-	}
-	
-	public function teardown()
-	{
-		$this->log_info("Tearing down generic app.\n");
-	}
-
-}
-
-$app = new IASGenericApp();
+$app = new IAS\Infra\App\IASGenericApp();
 
 $app->run();
 
