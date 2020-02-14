@@ -16,8 +16,8 @@ class IASGenericApp
 	{
 		$this->log_info("Generic app main\n");
 		
-		# $this->debug_paths();
-		# $this->debug_extended_paths();
+		$this->debug_paths();
+		$this->debug_extended_paths();
 		header('Content-Type: text/html');
 		print("<html><head><head></head><body>Hello, world!</body></html>\n");
 
