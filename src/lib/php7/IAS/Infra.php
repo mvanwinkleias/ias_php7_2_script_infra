@@ -9,6 +9,11 @@ class Infra
 	use Infra\FullProjectPaths;
 	public function run()
 	{
+		if (method_exists($this, 'open_log'))
+		{
+			$this->open_log();
+		}
+		
 		$this->setup_paths();
 
 		if (method_exists($this, 'setup'))
@@ -17,10 +22,20 @@ class Infra
 		}
 		
 		$this->main();
-	
+		
+		$this->infra_cleanup();
+	}
+
+	public function infra_cleanup()
+	{
 		if (method_exists($this, 'teardown'))
 		{
 			$this->teardown();
+		}
+		
+		if (method_exists($this, 'close_log'))
+		{
+			$this->close_log();
 		}
 	}
 
@@ -35,6 +50,7 @@ class Infra
 		
 		isset($this->bin_whence) OR
 			$this->bin_whence = $this->RealBin;
+		
 	}
 	
 	public function debug_paths()
