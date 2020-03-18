@@ -10,11 +10,12 @@ trait Logger
 	
 	public function log_start()
 	{
-		$this->log_info($this->RealScript." --BEGINNING--");
+		$this->log_info($this->Script." --BEGINNING--");
+		$this->log_info("Cwd: " . getcwd());
 	}
 	
 	public function log_end()
 	{
-		$this->log_info($this->RealScript." --ENDING--");
+		$this->log_info($this->Script." --ENDING--");
 	}
 }

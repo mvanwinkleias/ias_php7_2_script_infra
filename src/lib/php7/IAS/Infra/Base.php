@@ -6,11 +6,13 @@ trait Base
 {
 	public function setup_paths()
 	{
+
+		$this->Script = $_SERVER["SCRIPT_FILENAME"];
+		$this->Bin = dirname($this->Script);
+
 		list($script_path) = get_included_files();
-		$this->Script = $script_path;
 		$this->RealScript = realpath($script_path);
-		$this->Bin = dirname($script_path);
-		$this->RealBin = realpath($this->Bin);
+		$this->RealBin = realpath(dirname($this->RealScript));
 		
 		isset($this->bin_whence) OR
 			$this->bin_whence = $this->RealBin;

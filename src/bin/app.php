@@ -15,5 +15,15 @@ $app = new IAS\Infra\App\IASGenericApp();
 
 $app->run();
 
+/* This is only here for helping with debugging. */
+
+print "<br>\n";
+print(__FILE__ . "<br>\n");
+print($_SERVER["SCRIPT_FILENAME"] . "<br>\n");
+print("getcwd: " . getcwd() . "<br>\n");
+print("DOCUMENT_ROOT: " . $_SERVER["DOCUMENT_ROOT"] . "<br>\n");
+
+/* */
+
 exit;
 
