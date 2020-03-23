@@ -1,4 +1,5 @@
 <?php
+namespace IAS\Infra\App;
 
 set_include_path(join(
 	PATH_SEPARATOR,
@@ -9,21 +10,37 @@ set_include_path(join(
 	]
 ));
 
-include "IAS/Infra/App/IASGenericApp.php";
+include "IAS/Infra/App.php";
 
-$app = new IAS\Infra\App\IASGenericApp();
+class IASGenericApp
+{
+	use \IAS\Infra\App;
+	public function setup()
+	{
+		$this->log_info("Setting up generic app.\n");
+	}
+	
+	public function main()
+	{
+		$this->log_info("Generic app main\n");
+		
+		$this->debug_paths();
+		$this->debug_extended_paths();
+		header('Content-Type: text/html');
+		print("<html><head><head></head><body>Hello, world!</body></html>\n");
+
+	}
+	
+	public function teardown()
+	{
+		$this->log_info("Tearing down generic app.\n");
+	}
+
+}
+
+$app = new IASGenericApp();
 
 $app->run();
-
-/* This is only here for helping with debugging. */
-
-print "<br>\n";
-print("__FILE__: " . __FILE__ . "<br>\n");
-print("SCRIPT_FILENAME: " .$_SERVER["SCRIPT_FILENAME"] . "<br>\n");
-print("getcwd: " . getcwd() . "<br>\n");
-print("DOCUMENT_ROOT: " . $_SERVER["DOCUMENT_ROOT"] . "<br>\n");
-
-/* */
 
 exit;
 
