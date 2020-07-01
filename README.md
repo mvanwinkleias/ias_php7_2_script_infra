@@ -1,10 +1,10 @@
 # ias_php7_script_infra
 
-Here is an introduction to this project.
+PHP 7 infrastructure Libraries
 
 # License
 
-copyright (C) 2017 Author, Institution
+copyright (C) 2020 Martin VanWinkle, Institute for Advanced Study
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@ See
 
 ## Description
 
-* some_script.sh - does something.
+Provides a framework for writing PHP applications
 
 # Supplemental Documentation
 
