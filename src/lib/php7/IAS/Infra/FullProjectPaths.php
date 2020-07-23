@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Calculates / defines the following directories:
+ * 	- bin
+ * 	- lib
+ * 	- log
+ * 	- conf
+ * 	- input
+ * 	- output
+ */
 namespace IAS\Infra;
 
 trait FullProjectPaths

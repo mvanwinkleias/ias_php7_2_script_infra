@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Defines common logging functionality
+ */
 namespace IAS\Infra;
 
 include "IAS/Infra/Syslog.php";

@@ -2,6 +2,13 @@
 
 namespace IAS\Infra;
 
+/**
+ * Helper functions for determining paths which will be used
+ * relative to the program's location.
+ * 
+ * Contains the logic to determine if a program is inside of
+ * a source directory or not.
+ */
 trait Base
 {
 	public function setup_paths()

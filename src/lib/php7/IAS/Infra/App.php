@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Defines application hooks, starts logging, and calls
+ * various setup and teardown methods (if they exist)
+ */
 namespace IAS\Infra;
 
 include "IAS/Infra/FullProjectPaths.php";

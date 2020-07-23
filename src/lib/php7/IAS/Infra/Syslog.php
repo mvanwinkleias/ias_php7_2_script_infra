@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Provides a logging interface to syslog
+ */
 namespace IAS\Infra;
 
 trait Syslog
